@@ -4,42 +4,71 @@ import { motion } from 'framer-motion';
 
 export default function WelcomeHero() {
   return (
-    <div className="text-center py-20">
+    <div className="text-center py-12 md:py-20 px-4">
       <motion.h1
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8 }}
-        className="text-6xl font-bold text-white mb-6"
+        className="text-4xl md:text-6xl font-bold text-white mb-6"
       >
         Welcome to{' '}
-        <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
+        <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
           NovaLearn
         </span>
       </motion.h1>
       
-      <motion.p
+      <motion.div
         initial={{ y: 50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
-        className="text-xl text-white/80 mb-10 max-w-3xl mx-auto"
+        className="mb-10"
       >
-        Postgraduate Diploma in Education - Your journey to excellence starts here. 
-        Experience learning reimagined with cutting-edge technology and immersive education.
-      </motion.p>
+        <h2 className="text-2xl md:text-3xl font-semibold text-white mb-4">
+          Postgraduate Diploma in Education
+        </h2>
+        <p className="text-lg md:text-xl text-white/80 max-w-4xl mx-auto">
+          Accredited Online Study Center • Advanced Teaching Methodology • 
+          Research-Focused Curriculum • Professional Development
+        </p>
+      </motion.div>
 
       <motion.div
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
-        className="space-x-6"
+        className="space-y-4 md:space-y-0 md:space-x-6"
       >
-        <button className="bg-gradient-to-r from-purple-500 to-pink-500 text-white px-8 py-4 rounded-full text-lg font-semibold hover:from-purple-600 hover:to-pink-600 transition-all transform hover:scale-105">
-          Start Learning
+        <button className="w-full md:w-auto bg-gradient-to-r from-blue-500 to-purple-500 text-white px-8 py-4 rounded-full text-lg font-semibold hover:from-blue-600 hover:to-purple-600 transition-all transform hover:scale-105">
+          Enroll Now
         </button>
         
-        <button className="border border-white/30 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/10 transition-all">
-          Explore Courses
+        <button className="w-full md:w-auto border border-white/30 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white/10 transition-all">
+          View Curriculum
         </button>
+
+        <button className="w-full md:w-auto bg-green-500 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-green-600 transition-all">
+          Student Portal
+        </button>
+      </motion.div>
+
+      {/* Academic Badges */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1, delay: 0.8 }}
+        className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto"
+      >
+        {[
+          { label: 'Accredited', icon: '🏅' },
+          { label: 'Flexible', icon: '⏰' },
+          { label: 'Support', icon: '👨‍🏫' },
+          { label: 'Career Focus', icon: '🎯' }
+        ].map((item, index) => (
+          <div key={item.label} className="bg-white/5 p-4 rounded-lg backdrop-blur-sm">
+            <div className="text-2xl mb-2">{item.icon}</div>
+            <div className="text-white/80 text-sm">{item.label}</div>
+          </div>
+        ))}
       </motion.div>
     </div>
   );
