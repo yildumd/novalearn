@@ -1,3 +1,10 @@
+import { type ClassValue, clsx } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+
 export function calculateGPA(scores: number[]): number {
   const total = scores.reduce((sum, score) => sum + score, 0);
   return parseFloat((total / scores.length).toFixed(2));
